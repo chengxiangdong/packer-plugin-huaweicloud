@@ -31,7 +31,7 @@ builds:
     flags:
       - -trimpath #removes all file system paths from the compiled executable
     ldflags:
-      - '-s -w -X {{ .ModulePath }}/version.Version={{.Version}} -X {{ .ModulePath }}/version.VersionPrerelease= '
+      - '-s -w -X {{ .ModulePath }}/main.Version={{.Version}} -X {{ .ModulePath }}/main.VersionPrerelease= '
     goos:
       - freebsd
       - windows
