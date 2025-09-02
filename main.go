@@ -27,7 +27,10 @@ var (
 )
 
 func main() {
-	fmt.Println("version v" + Version)
+	if os.Getenv("PACKER_API_VERSION") != "" {
+		fmt.Printf("Version %s-%s\n", Version, VersionPrerelease)
+	}
+
 	pps := plugin.NewSet()
 	pps.RegisterBuilder("ecs", new(ecsbuilder.Builder))
 	pps.RegisterPostProcessor("import", new(huaweicloudimport.PostProcessor))
